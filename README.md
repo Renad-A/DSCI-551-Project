@@ -1,13 +1,28 @@
-# DSCI-551-Project
-This repo is created for the purpose of documenting milestones for Foundations of Data Management Course Project.
+# DuckDB Analytical Application
 
-# DuckDB Analytical Project
+## Overview
+This project explores how DuckDB executes analytical queries and how its internal design affects query behavior and performance. It demonstrates how database internals such as columnar storage and vectorized execution influence analytical workloads.
 
-This repository contains the implementation of the midterm project.
+---
 
-## Contents
-- Jupyter notebook with all queries and execution plans
-- Superstore dataset (cleaned)
+## Features
+- Analytical queries using DuckDB
+- Execution plan analysis using EXPLAIN ANALYZE
+- Demonstration of columnar storage and vectorized execution
+- Query comparisons (aggregation, filtering, time-based analysis)
 
-## How to run
-Open the notebook and run all cells in order.
+---
+
+## Dataset
+This project uses the Superstore dataset.
+
+The dataset was scaled to approximately 200,000 rows to simulate a larger analytical workload.
+
+---
+
+## Requirements
+
+Install dependencies:
+
+```bash
+pip install duckdb pandas
