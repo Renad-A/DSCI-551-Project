@@ -23,7 +23,7 @@ This project uses the **Superstore** dataset, scaled to approximately **200,000 
 
 | File | Description |
 |------|-------------|
-| `cleaned_superstore_dataset.csv` | Original cleaned dataset (~9,993 rows) — **included in the repo** |
+| `cleaned superstore dataset.csv` | Original cleaned dataset (~9,993 rows) — **included in the repo** |
 | `superstore_scaled.csv` | Scaled dataset (~199,860 rows) — **generated automatically by the notebook** |
 
 ### Important
