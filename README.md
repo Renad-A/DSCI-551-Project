@@ -23,13 +23,14 @@ This project uses the **Superstore** dataset, scaled to approximately **200,000 
 
 | File | Description |
 |------|-------------|
-| `cleaned superstore dataset.csv` | Original cleaned dataset (~9,993 rows) — **included in the repo** |
+| `cleaned_superstore_dataset.csv` | Original cleaned dataset (~9,993 rows) — **included in the repo** |
 | `superstore_scaled.csv` | Scaled dataset (~199,860 rows) — **generated automatically by the notebook** |
 
 ### Important
 
-- `cleaned_superstore_dataset.csv` must be present in the **same directory as the notebook** before running any cells. The notebook loads it using a relative path, so moving it will cause an error.
+- `cleaned superstore dataset.csv` is committed to the repository and will be available after cloning. No separate download is required.
 - `superstore_scaled.csv` does **not** need to be downloaded or created manually, it is generated when cell [1] is executed.
+- `cleaned superstore dataset.csv` must remain in the **same directory as the notebook**. The notebook loads it using a relative path, so moving it will cause an error.
 - Run all cells **in order** from top to bottom. Cell [1] must complete successfully before any subsequent queries can run.
 
 ---
@@ -53,11 +54,17 @@ pip install duckdb pandas jupyter
 
 ## Project Configuration
 
-No additional configuration is required.
+No additional configuration is required. The project is self-contained and runs entirely through the notebook.
 
-- The project uses an **in-memory DuckDB instance**
-- The dataset is included (`cleaned superstore dataset.csv`)
-- A scaled dataset is generated automatically in the notebook
+### Pipeline Overview
+
+The notebook executes the following pipeline automatically when run in order:
+
+1. **Data Generation** — `cleaned superstore dataset.csv` (included in the repo) is loaded via pandas and duplicated 20 times to produce a scaled dataset of ~199,860 rows, saved as `superstore_scaled.csv` in the same directory.
+2. **Database Setup** — An in-memory DuckDB instance is created using `duckdb.connect(database=':memory:')`. No external database server is needed.
+3. **Data Loading** — The scaled dataset is registered as a DuckDB table directly from the pandas DataFrame, making it immediately available for SQL queries.
+4. **Query Execution** — Analytical queries (aggregations, filters, time-based analysis) are executed against the in-memory table and results are displayed inline.
+5. **Execution Plan Analysis** — `EXPLAIN ANALYZE` is used to inspect DuckDB's vectorized execution plans for each query.
 
 ---
 
