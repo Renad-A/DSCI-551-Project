@@ -29,7 +29,7 @@ This project uses the **Superstore** dataset, scaled to approximately **200,000 
 ### Important
 
 - `cleaned_superstore_dataset.csv` must be present in the **same directory as the notebook** before running any cells. The notebook loads it using a relative path, so moving it will cause an error.
-- `superstore_scaled.csv` does **not** need to be downloaded or created manually — it is generated when cell [1] is executed.
+- `superstore_scaled.csv` does **not** need to be downloaded or created manually, it is generated when cell [1] is executed.
 - Run all cells **in order** from top to bottom. Cell [1] must complete successfully before any subsequent queries can run.
 
 ---
@@ -56,7 +56,7 @@ pip install duckdb pandas jupyter
 No additional configuration is required.
 
 - The project uses an **in-memory DuckDB instance**
-- The dataset is included (`cleaned_superstore_dataset.csv`)
+- The dataset is included (`cleaned superstore dataset.csv`)
 - A scaled dataset is generated automatically in the notebook
 
 ---
